@@ -13533,13 +13533,13 @@ var cardsDiv = document.querySelector(".cards");
 ipAdresimiAl().then(function () {
   var url = "https://apis.ergineer.com/ipgeoapi/" + benimIP;
   _axios.default.get(url).then(function (response) {
-    console.log("basarili");
+    console.log("Başarılı");
     var ulkeDinamik = response.data;
     var card = ipAdresim(ulkeDinamik);
     var cardsElement = document.querySelector(".cards");
     cardsElement.appendChild(card);
   }).catch(function (error) {
-    console.log("başarısız", error);
+    console.log("Başarısız", error);
   });
 });
 /*

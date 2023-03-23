@@ -106,14 +106,14 @@ ipAdresimiAl().then(() => {
   axios
     .get(url)
     .then((response) => {
-      console.log("basarili");
+      console.log("Başarılı");
       const ulkeDinamik = response.data;
       const card = ipAdresim(ulkeDinamik);
       const cardsElement = document.querySelector(".cards");
       cardsElement.appendChild(card);
     })
     .catch((error) => {
-      console.log("başarısız", error);
+      console.log("Başarısız", error);
     });
 });
 /*
