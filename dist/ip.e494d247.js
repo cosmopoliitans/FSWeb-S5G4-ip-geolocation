@@ -13530,6 +13530,24 @@ function ipAdresim(data) {
   return newClass;
 }
 var cardsDiv = document.querySelector(".cards");
+/*
+async function setCartData() {
+  await ipAdresimiAl();
+  // IP adresimi biliyorum
+  axios
+    .get(`https://apis.ergineer.com/ipgeoapi/${benimIP}`)
+    .then(function (response) {
+      // handle success
+      //   console.log(response);
+      cardContainer.append(cardYapici(response.data));
+    })
+    .catch(function (error) {
+      // handle error
+      console.log(error);
+    });
+}
+setCartData();*/
+
 _axios.default.get("https://apis.ergineer.com/ipgeoapi/159.146.66.41").then(function (response) {
   cardsDiv.appendChild(ipAdresim(response.data));
   console.log(response);
