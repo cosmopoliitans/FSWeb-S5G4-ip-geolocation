@@ -13530,31 +13530,29 @@ function ipAdresim(data) {
   return newClass;
 }
 var cardsDiv = document.querySelector(".cards");
-/*
-async function setCartData() {
-  await ipAdresimiAl();
-  // IP adresimi biliyorum
-  axios
-    .get(`https://apis.ergineer.com/ipgeoapi/${benimIP}`)
-    .then(function (response) {
-      // handle success
-      //   console.log(response);
-      cardContainer.append(cardYapici(response.data));
-    })
-    .catch(function (error) {
-      // handle error
-      console.log(error);
-    });
-}
-setCartData();*/
-
-_axios.default.get("https://apis.ergineer.com/ipgeoapi/159.146.66.41").then(function (response) {
-  cardsDiv.appendChild(ipAdresim(response.data));
-  console.log(response);
-}).catch(function (error) {
-  console.log("Error: " + error);
+ipAdresimiAl().then(function () {
+  var url = "https://apis.ergineer.com/ipgeoapi/" + benimIP;
+  _axios.default.get(url).then(function (response) {
+    console.log("basarili");
+    var ulkeDinamik = response.data;
+    var card = ipAdresim(ulkeDinamik);
+    var cardsElement = document.querySelector(".cards");
+    cardsElement.appendChild(card);
+  }).catch(function (error) {
+    console.log("başarısız", error);
+  });
 });
-
+/*
+axios
+  .get("https://apis.ergineer.com/ipgeoapi/159.146.66.41")
+  .then((response) => {
+    cardsDiv.appendChild(ipAdresim(response.data));
+    console.log(response);
+  })
+  .catch((error) => {
+    console.log("Error: " + error);
+  });
+*/
 /*
 	ADIM 4: API'den alınan verileri kullanarak ADIM 3'te verilen yapıda bir kart oluşturun ve 
 	bu kartı DOM olarak .cards elementinin içine ekleyin. 
@@ -13594,7 +13592,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49315" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51241" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];

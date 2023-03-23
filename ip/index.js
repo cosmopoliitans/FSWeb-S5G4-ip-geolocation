@@ -100,24 +100,23 @@ function ipAdresim(data) {
   return newClass;
 }
 const cardsDiv = document.querySelector(".cards");
-/*
-async function setCartData() {
-  await ipAdresimiAl();
-  // IP adresimi biliyorum
-  axios
-    .get(`https://apis.ergineer.com/ipgeoapi/${benimIP}`)
-    .then(function (response) {
-      // handle success
-      //   console.log(response);
-      cardContainer.append(cardYapici(response.data));
-    })
-    .catch(function (error) {
-      // handle error
-      console.log(error);
-    });
-}
-setCartData();*/
 
+ipAdresimiAl().then(() => {
+  var url = "https://apis.ergineer.com/ipgeoapi/" + benimIP;
+  axios
+    .get(url)
+    .then((response) => {
+      console.log("basarili");
+      const ulkeDinamik = response.data;
+      const card = ipAdresim(ulkeDinamik);
+      const cardsElement = document.querySelector(".cards");
+      cardsElement.appendChild(card);
+    })
+    .catch((error) => {
+      console.log("başarısız", error);
+    });
+});
+/*
 axios
   .get("https://apis.ergineer.com/ipgeoapi/159.146.66.41")
   .then((response) => {
@@ -127,7 +126,7 @@ axios
   .catch((error) => {
     console.log("Error: " + error);
   });
-
+*/
 /*
 	ADIM 4: API'den alınan verileri kullanarak ADIM 3'te verilen yapıda bir kart oluşturun ve 
 	bu kartı DOM olarak .cards elementinin içine ekleyin. 
