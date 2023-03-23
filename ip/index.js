@@ -86,11 +86,11 @@ function ipAdresim(data) {
   cardInfo.appendChild(para3);
 
   const para4 = document.createElement("p");
-  para4.textContent = `Saat dilimi: ${data.saatDilimi}`;
+  para4.textContent = `Saat dilimi: ${data.saatdilimi}`;
   cardInfo.appendChild(para4);
 
   const para5 = document.createElement("p");
-  para5.textContent = `Para birimi: ${data.paraBirimi}`;
+  para5.textContent = `Para birimi: ${data.parabirimi}`;
   cardInfo.appendChild(para5);
 
   const para6 = document.createElement("p");

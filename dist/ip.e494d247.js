@@ -13519,10 +13519,10 @@ function ipAdresim(data) {
   para3.textContent = "\u015Eehir: ".concat(data.şehir);
   cardInfo.appendChild(para3);
   var para4 = document.createElement("p");
-  para4.textContent = "Saat dilimi: ".concat(data.saatDilimi);
+  para4.textContent = "Saat dilimi: ".concat(data.saatdilimi);
   cardInfo.appendChild(para4);
   var para5 = document.createElement("p");
-  para5.textContent = "Para birimi: ".concat(data.paraBirimi);
+  para5.textContent = "Para birimi: ".concat(data.parabirimi);
   cardInfo.appendChild(para5);
   var para6 = document.createElement("p");
   para6.textContent = "ISP: ".concat(data.isp);
@@ -13592,7 +13592,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51241" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52686" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];
